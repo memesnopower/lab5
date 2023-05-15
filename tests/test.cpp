@@ -28,8 +28,9 @@ TEST(Transaction, Banking){
 	ASSERT_THROW(tran.Make(x, x, 1000), std::logic_error);
 	ASSERT_THROW(tran.Make(x, y, -50), std::invalid_argument);
 	ASSERT_THROW(tran.Make(x, y, 50), std::logic_error);
-	if (tran.fee()*2-1 >= 100)
+	if (tran.fee()*2-1 >= 100) {
 		ASSERT_EQ(tran.Make(x, y, tran.fee()*2-1), false);
+	}
 	//что все верно лочится
 	x.Lock();
 	ASSERT_THROW(tran.Make(x, y, 1000), std::runtime_error);
