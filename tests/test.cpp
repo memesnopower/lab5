@@ -38,10 +38,10 @@ TEST(Transaction, Banking){
 	Man1.Lock();
 	ASSERT_THROW(tran.Make(Man1, Man2, 1000), std::runtime_error);
 	Man1.Unlock();
-	ASSERT_EQ(tran.Make(Man1, Man2, 1000), true); //all good
+	ASSERT_EQ(tran.Make(Man1, Man2, 1000), true);
 	ASSERT_EQ(Man2.GetBalance(), base_B+1000);	
 	ASSERT_EQ(Man1.GetBalance(), base_A-1000-base_fee);
-	ASSERT_EQ(tran.Make(Man1, Man2, 3900), false);//not enough money
+	ASSERT_EQ(tran.Make(Man1, Man2, 3900), false);
 	ASSERT_EQ(Man2.GetBalance(), base_B+1000);	
 	ASSERT_EQ(Man1.GetBalance(), base_A-1000-base_fee);
 }
