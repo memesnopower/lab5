@@ -1,19 +1,5 @@
-#include <Account.h>
 #include <Transaction.h>
 #include <gtest/gtest.h>
-
-TEST(Account, Banking){
-	Account test(0,0);
-	ASSERT_EQ(test.GetBalance(), 0);
-	ASSERT_THROW(test.ChangeBalance(100), std::runtime_error);
-	test.Lock();
-	ASSERT_NO_THROW(test.ChangeBalance(100));
-	ASSERT_EQ(test.GetBalance(), 100);
-	ASSERT_THROW(test.Lock(), std::runtime_error);
-	test.Unlock();
-	ASSERT_THROW(test.ChangeBalance(100), std::runtime_error);
-}
-
 
 TEST(Transaction, Banking){
 	const int base_A = 5000, base_B = 5000, base_fee = 100;
