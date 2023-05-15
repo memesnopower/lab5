@@ -31,9 +31,9 @@ TEST(Transaction, Banking){
 	if (tran.fee()*2-1 >= 100)
 		ASSERT_EQ(tran.Make(x, y, tran.fee()*2-1), false);
 	//что все верно лочится
-	Alice.Lock();
+	x.Lock();
 	ASSERT_THROW(tran.Make(x, y, 1000), std::runtime_error);
-	Alice.Unlock();
+	x.Unlock();
 	//транзакция проходит
 	ASSERT_EQ(tran.Make(x, y, 1000), true);
 	ASSERT_EQ(y.GetBalance(), base_B+1000);
