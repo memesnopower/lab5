@@ -30,8 +30,9 @@ TEST(Transaction, Banking){
 	ASSERT_THROW(tran.Make(Man1, Man1, 1000), std::logic_error);
 	ASSERT_THROW(tran.Make(Man1, Man2, -50), std::invalid_argument);
 	ASSERT_THROW(tran.Make(Man1, Man2, 50), std::logic_error);
-	if (tran.fee()*2-1 >= 100)
+	if (tran.fee()*2-1 >= 100) {
 		ASSERT_EQ(tran.Make(Man1, Man2, tran.fee()*2-1), false);
+	}
 //lock
 	Man1.Lock();
 	ASSERT_THROW(tran.Make(Man1, Man2, 1000), std::runtime_error);
