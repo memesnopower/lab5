@@ -6,7 +6,7 @@ TEST(Account, Banking){
 	Account test(0,0); //constructor
 	ASSERT_EQ(test.GetBalance(), 0); 
 	// lock test
-	ASSERT_THROW(test.ChangeBalance(100), std::runtime_error); // add balance
+	ASSERT_THROW(test.ChangeBalance(100), std::runtime_error); // add balanc
 	test.Lock(); //lock
 	ASSERT_NO_THROW(test.ChangeBalance(100));
 //change balance
