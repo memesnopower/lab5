@@ -8,8 +8,8 @@ TEST(Account, Banking){
 	// lock test
 	ASSERT_THROW(test.ChangeBalance(100), std::runtime_error); // add balance
 	test.Lock(); //lock
-	ASSERT_NO_THROW(test.ChangeBalance(100)); //can we change?
-//change balance, check balance
+	ASSERT_NO_THROW(test.ChangeBalance(100));
+//change balance
 	ASSERT_EQ(test.GetBalance(), 100);
 //if it locked?
 	ASSERT_THROW(test.Lock(), std::runtime_error);
